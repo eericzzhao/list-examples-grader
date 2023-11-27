@@ -14,11 +14,13 @@ then
     cp -r ./student-submission/ListExamples.java ./grading-area/
     cp -r TestListExamples.java ./grading-area/
     cp -r ./lib ./grading-area/
+    echo "It worky worky"
+
     # javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
     # java -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" org.junit.runner.JunitCore ListExamples
     javac -cp $CPATH ./grading-area/*.java
-    java -cp $CPATH org.junit.runner.JUnitCore ./grading-area/TestListExamples 
-    echo "It worky worky"
+    java -cp $CPATH org.junit.runner.JUnitCore ./grading-area/TestListExamples > error.txt
+    cat "error.txt"
 else
     echo "Did NOT copy correctly womp womp :(" 
 fi
